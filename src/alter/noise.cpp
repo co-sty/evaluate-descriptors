@@ -4,26 +4,17 @@ using namespace cv;
 using namespace std;
 
 
-Alter::Alter(){}
+//---------------------------------
+//            Noise
+//---------------------------------
 
-int Alter::add(const Mat& in, Mat& out)
+Noise::Noise(const Mat& mat_ref_)
+      : Alter(mat_ref_)
 {
-  in.copyTo(out);
-  return 0;
-}
-
-int Alter::rm(const vector<KeyPoint>& k1, vector<KeyPoint>& k2)
-{
-  k2 = k1;
-  return 0;
-}
-
-Noise::Noise()
-{
-  RNG rng(12345);
   mean = 0;
   var = rng.uniform(-10,10);
 }
+
 int Noise::add(const Mat& in, Mat& out)
 {
   // generate noise

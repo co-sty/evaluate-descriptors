@@ -22,7 +22,7 @@ float Eval::precision()
 
 float Eval::matching_score()
 {
-	return ((float) correct_matches()) * 2  / ((float) (k1.size()+k2.size()) );
+	return ((float) correct_matches()) * 2 / ((float) (k1.size()+k2.size()) );
 }
 
 int Eval::correct_matches()
@@ -37,6 +37,8 @@ int Eval::correct_matches()
 		if(norm(Mat(a),Mat(b)) < eps)
 			count++;
 	}
+
+	count *= 2;
 
 	return count;
 }

@@ -21,13 +21,16 @@ include_directories(
 	h
 	)
 
+file(GLOB my_SRC
+	    "h/*.h"
+	    "src/*.cpp"
+	    "src/alter/*.cpp"
+)
+
 add_executable( 
 	evaluation 
 	main.cpp 
-	h/eval.hpp
-	src/eval.cpp
-	h/alter.hpp
-	src/alter.cpp
+	${my_SRC}
 	)
 
 target_link_libraries( 

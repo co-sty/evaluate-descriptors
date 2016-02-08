@@ -17,11 +17,9 @@ int main( int argc, char** argv )
 {
 	Mat I = imread(argv[1]);//imread("../data/pietons/train/+_cropped/1.jpg");
 	Mat J;
-	Noise alter;
+	Transf alter(I);
 	alter.add(I,J);
 	alter.msg();
-
-	imshow("abc",J);
 
 	// Detect
 	Ptr<Feature2D> detector = ORB::create();
@@ -40,7 +38,7 @@ int main( int argc, char** argv )
 	vector< DMatch > matches;
 	matcher.match( descriptorsI, descriptorsJ, matches );
 
-	// Testing
+	// Test
 	vector<KeyPoint> keypointsJ_;
 	alter.rm(keypointsJ, keypointsJ_);
 	Eval eval(keypointsI, keypointsJ_, matches);
@@ -62,9 +60,16 @@ int main( int argc, char** argv )
 			 << endl;
 
 	// Display Results
-	Mat img_matches;
-	drawMatches( I, keypointsI, J, keypointsJ, matches, img_matches );
-	imshow("Matches", img_matches );
+  string win_matches = "Matches",
+         win_keypoints1 = "Keypoints1",
+         win_keypoints2 = "Keypoints2";
+	Mat img_matches, img_keypoints1, img_keypoints2;
+	drawMatches( I, keypointsI, J, keypointsJ, matches, img_matches, Scalar(100,100,100), Scalar(0,0,255) );
+	imshow(win_matches, img_matches );
+	drawKeypoints( I, keypointsI, img_keypoints1, Scalar(0,0,255) );
+	drawKeypoints( I, keypointsJ_, img_keypoints2, Scalar(0,255,0) );
+	imshow(win_keypoints1, img_keypoints1 );
+	imshow(win_keypoints2, img_keypoints2 );
 
 	waitKey(0);
 
