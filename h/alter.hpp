@@ -10,29 +10,32 @@ using namespace std;
 
 class Alter {
 public:
-  Alter(const Mat& mat_ref_);
+  Alter();
+  Alter(Size ref_size);
   virtual int add(const Mat& in, Mat& out);
   virtual int rm(const vector<KeyPoint>& k1, vector<KeyPoint>& k2);
   int rm_outliers(vector<KeyPoint>& k1, vector<KeyPoint>& k2);
   virtual int msg();
   RNG rng;
 private:
-  const Mat& ref_img;
+  Size ref_size;
 };
 
 // Children
 
 class Noise : public Alter {
 public:
-  Noise(const Mat& mat_ref_);
+  Noise(Size ref_size);
+  Noise(Size ref_size, float var_);
   virtual int add(const Mat& in, Mat& out);
+  virtual int rm(const vector<KeyPoint>& k1, vector<KeyPoint>& k2);
   virtual int msg();
   float mean, var;
 };
 
 class Transf : public Alter {
 public:
-  Transf(const Mat& mat_ref_);
+  Transf(Size ref_size);
   virtual int add(const Mat& in, Mat& out);
   virtual int rm(const vector<KeyPoint>& k1, vector<KeyPoint>& k2);
   virtual int msg();

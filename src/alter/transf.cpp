@@ -8,11 +8,11 @@ using namespace std;
 //---------------------------------
 
 
-Transf::Transf(const Mat& mat_ref_)
-      : Alter(mat_ref_)
+Transf::Transf(Size ref_size_)
+      : Alter(ref_size_)
 {
-  int c = mat_ref_.cols,
-      r = mat_ref_.rows;
+  int c = ref_size_.width,
+      r = ref_size_.height;
   Point2f srcTri[3],
           dstTri[3];
   float top_pc = 0.9,
@@ -22,10 +22,14 @@ Transf::Transf(const Mat& mat_ref_)
   srcTri[1] = Point2f( c - 1.f, 0 );
   srcTri[2] = Point2f( 0, r - 1.f );
 
+  dstTri[0] = Point2f( 0.1f,0 );
+  dstTri[1] = Point2f( c-0.99f, 0.01f );
+  dstTri[2] = Point2f( 0, r-1.f );
+/*
   dstTri[0] = Point2f( rng.uniform(0.f,c*0.1f), rng.uniform(0.f,r*bot_pc) );
   dstTri[1] = Point2f( rng.uniform((c-1.f)*top_pc,c-1.f), rng.uniform(0.f,(r-1.f)*top_pc) );
   dstTri[2] = Point2f( rng.uniform(0.f,c*bot_pc), rng.uniform((r-1.f)*top_pc,r-1.f) );
-
+*/
   warp_mat = getAffineTransform( srcTri, dstTri );
 }
 
@@ -63,7 +67,7 @@ int Transf::rm(const vector<KeyPoint>& k1, vector<KeyPoint>& k2)
 
 int Transf::msg()
 {
-  cout << "warping "
+  cout << "warping with matrix :"
        << endl
        << warp_mat
        << endl;

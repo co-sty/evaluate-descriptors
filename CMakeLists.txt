@@ -5,6 +5,8 @@ project( evaluation )
 
 set(ENV{OpenCV_DIR} /usr/local)
 
+set(CMAKE_BUILD_TYPE Debug)
+
 find_package( OpenCV REQUIRED )
 
 

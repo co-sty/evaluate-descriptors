@@ -8,8 +8,12 @@ using namespace std;
 //            Alter
 //---------------------------------
 
-Alter::Alter(const Mat& ref_img_)
-      : ref_img(ref_img_)
+Alter::Alter() 
+      : ref_size(Mat::zeros(1,1,CV_32F).size())
+{}
+
+Alter::Alter(Size ref_size_)
+      : ref_size(ref_size_)
 {}
 
 int Alter::add(const Mat& in, Mat& out)
@@ -26,27 +30,19 @@ int Alter::rm(const vector<KeyPoint>& k1, vector<KeyPoint>& k2)
 
 int Alter::rm_outliers(vector<KeyPoint>& k1, vector<KeyPoint>& k2)
 {
-  k2 = k1;//.clone();
+  k2 = k1;//.copy();
 
   remove_if(k1.begin(), k1.end(),
   [&](KeyPoint k){
-    return (k.pt.x < Alter::ref_img.cols
+    return (k.pt.x < ref_size.width
       &&  k.pt.x >= 0
-      &&  k.pt.y < Alter::ref_img.rows
+      &&  k.pt.y < ref_size.height
       &&  k.pt.y >= 0);}
     );
 
   return 0;
 }
-/*
-bool Alter::isInCanvas(KeyPoint k)
-{
-  return (k.pt.x < ref_img.cols
-      &&  k.pt.x >= 0
-      &&  k.pt.y < ref_img.rows
-      &&  k.pt.y >= 0);
-}
-*/
+
 int Alter::msg()
 {
   cout << "No modification" <<endl;
