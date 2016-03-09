@@ -229,6 +229,8 @@ function display_time(filename, container)
 function fill_times(container,tests)
 {
   var done = [];
+
+  // put legend
   var legend = add_times(container,"",[window.MAX_TIME/3.5,window.MAX_TIME/3.5,window.MAX_TIME/3.5]);
   legend[0].innerHTML = "detection";
   legend[1].innerHTML = "description";

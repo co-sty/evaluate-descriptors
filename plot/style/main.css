@@ -90,7 +90,7 @@ a
 	padding: 50px;
 	text-align: center;
 	color: white;
-	height: 90px;
+	height: 100px;
 	line-height: 90px;
 }
 
@@ -107,7 +107,7 @@ a
 .t0, .t1, .t2
 {
 	float: left;
-	height: 100px;
+	height: 100%;
 }
 
 .t0:hover, .t1:hover, .t2:hover
