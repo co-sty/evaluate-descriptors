@@ -60,15 +60,18 @@ int Eval::nb_correspondences()
 	// select ka, kb
 	if(k1.size()>k2.size())
 	{
-		ka = k2;
-		kb = k1;
-	}
-	else
-	{
 		ka = k1;
 		kb = k2;
 	}
-
+	else
+	{
+		ka = k2;
+		kb = k1;
+	}
+/*
+	ka = k1;
+	kb = k2;
+*/
 	int j_min, min_dist;
 
 	for(int i=0; i<ka.size(); i++)

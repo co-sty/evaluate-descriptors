@@ -15,16 +15,19 @@ Transf::Transf(Size ref_size_)
       r = ref_size_.height;
   Point2f srcTri[3],
           dstTri[3];
-  float top_pc = 0.9,
-        bot_pc = 0.1;
+  float top_pc = 0.05,
+        hor_pc = 0.95,
+        ver_pc = 0.07;
+  float plus = 0.1f,
+        minus = 0.1f;
 
   srcTri[0] = Point2f( 0,0 );
   srcTri[1] = Point2f( c - 1.f, 0 );
   srcTri[2] = Point2f( 0, r - 1.f );
 
-  dstTri[0] = Point2f( 0.1f,0 );
-  dstTri[1] = Point2f( c-0.99f, 0.01f );
-  dstTri[2] = Point2f( 0, r-1.f );
+  dstTri[0] = Point2f( 0.f, (c - 1.f)*top_pc );
+  dstTri[1] = Point2f( (c - 1.f)*hor_pc, 0.f );
+  dstTri[2] = Point2f( 0, (r-1.f)*(1.f-ver_pc) );
 /*
   dstTri[0] = Point2f( rng.uniform(0.f,c*0.1f), rng.uniform(0.f,r*bot_pc) );
   dstTri[1] = Point2f( rng.uniform((c-1.f)*top_pc,c-1.f), rng.uniform(0.f,(r-1.f)*top_pc) );
@@ -39,7 +42,8 @@ int Transf::add(const Mat& in, Mat& out)
   Mat warp_dst = Mat::zeros( in.rows, in.cols, in.type() );
   warpAffine( in, warp_dst, warp_mat, warp_dst.size() );
 
-  out = warp_dst.clone();
+  // out = warp_dst.clone();
+  warp_dst.copyTo(out);
 
   return 0;
 }

@@ -26,7 +26,8 @@ public:
 	// output
 	Mat results(float step, float sigma);
 	int print_results();
-	vector <string> result_keys = {"putative match ratio",
+	vector <string> result_keys = {
+		"putative match ratio",
 		"precision",
 		"matching_score",
 		"recall",

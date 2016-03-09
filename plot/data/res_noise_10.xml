@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<meta>
+  <params>1</params></meta>
+<data>
+  <test>
+    <detector>AKAZE</detector>
+    <descriptor>AKAZE</descriptor>
+    <alteration>noise</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 8.59644234e-01 8.59644234e-01 9.04113889e-01 0.
+        3.01130005e+03 3.07319995e+03 3.01130005e+03 2.60490015e+03
+        2.86980005e+03</data></results></test>
+  <test>
+    <detector>AKAZE</detector>
+    <descriptor>BRISK</descriptor>
+    <alteration>noise</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 8.87595773e-01 8.87595773e-01 9.41468537e-01 0.
+        3.01130005e+03 3.05769995e+03 3.01130005e+03 2.68310010e+03
+        2.84210010e+03</data></results></test>
+  <test>
+    <detector>AKAZE</detector>
+    <descriptor>ORB</descriptor>
+    <alteration>noise</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 9.45947349e-01 9.45947349e-01 1.00075269e+00 0.
+        2.97890015e+03 3.02060010e+03 2.97890015e+03 2.82460010e+03
+        2.81930005e+03</data></results></test>
+  <test>
+    <detector>ORB</detector>
+    <descriptor>ORB</descriptor>
+    <alteration>noise</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 8.04000020e-01 8.04000020e-01 9.13771093e-01 0. 500. 500.
+        500. 402. 4.39899994e+02</data></results></test>
+  <test>
+    <detector>ORB</detector>
+    <descriptor>BRISK</descriptor>
+    <alteration>noise</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 8.03717911e-01 8.03717911e-01 9.23484802e-01 0.
+        3.57800018e+02 3.56399994e+02 3.57800018e+02 2.87399994e+02
+        3.11300018e+02</data></results></test>
+  <test>
+    <detector>BRISK</detector>
+    <descriptor>ORB</descriptor>
+    <alteration>noise</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 6.71645045e-01 6.71645045e-01 6.81942165e-01 0. 10602.
+        1.28347002e+04 10602. 7.10570020e+03 1.03807002e+04</data></results></test>
+  <test>
+    <detector>BRISK</detector>
+    <descriptor>BRISK</descriptor>
+    <alteration>noise</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 6.75538361e-01 6.75538361e-01 6.89747989e-01 0.
+        1.14181006e+04 1.39605000e+04 1.14181006e+04 7.67189990e+03
+        1.11092002e+04</data></results></test></data>
+</opencv_storage>

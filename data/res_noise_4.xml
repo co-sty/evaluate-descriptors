@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<meta>
+  <params>1</params></meta>
+<data>
+  <test>
+    <detector>AKAZE</detector>
+    <descriptor>AKAZE</descriptor>
+    <alteration>noise</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 8.10831189e-01 8.10831189e-01 8.68847966e-01 0.
+        2.23525000e+03 2.31050000e+03 2.23525000e+03 1.80050000e+03
+        2092.</data></results></test>
+  <test>
+    <detector>AKAZE</detector>
+    <descriptor>AKAZE</descriptor>
+    <alteration>transf</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 8.05610001e-01 8.05610001e-01 8.59560549e-01 0.
+        2.23525000e+03 2.30875000e+03 2.23525000e+03 1790. 2100.</data></results></test>
+  <test>
+    <detector>AKAZE</detector>
+    <descriptor>ORB</descriptor>
+    <alteration>noise</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 8.83670568e-01 8.83670568e-01 9.44368482e-01 0. 2218.
+        2.28175000e+03 2218. 1965. 2.07725000e+03</data></results></test>
+  <test>
+    <detector>AKAZE</detector>
+    <descriptor>ORB</descriptor>
+    <alteration>transf</alteration>
+    <results type_id="opencv-matrix">
+      <rows>10</rows>
+      <cols>1</cols>
+      <dt>f</dt>
+      <data>
+        1. 8.76908302e-01 8.76908302e-01 9.37019467e-01 0. 2218.
+        2.29225000e+03 2218. 1957. 2.08150000e+03</data></results></test></data>
+</opencv_storage>
