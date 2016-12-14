@@ -33,31 +33,9 @@ unordered_map<string,Ptr<Feature2D> > methods({
 string alterations[2] = {"noise","transf"};
 
 string combinations[4][2] = {
-
-		// {"ORB","SIFT"},
-		// {"ORB","SURF"}
-
-		// {"SIFT","SIFT"},
-		// {"SIFT","SURF"},
-		//
-		// {"SURF","SIFT"},
-		// {"SURF","SURF"},
-		//
-		// {"BRISK","SIFT"},
-		// {"BRISK","SURF"},
-		// {"BRISK","BRISK"},
 		{"BRISK","BRISK"},
-		// {"BRISK","ORB"},
-		//
-		// {"ORB","SIFT"},
-		// {"ORB","SURF"},
-		// {"ORB","BRISK"},
 		{"ORB","ORB"},
-		//
-		// {"AKAZE","SIFT"},
 		{"AKAZE","SURF"},
-		// {"AKAZE","BRISK"},
-		// {"AKAZE","ORB"},
 		{"AKAZE","AKAZE"}
 	};
 
@@ -95,10 +73,6 @@ Mat eval_method(
 	);
 
 int eval_all(const string &dir_name, const string &db_name);
-
-// int show_method(String img_name, 
-	// String detector_name, 
-	// String descriptor_name);
 
 Alter* alteration_picker(Size size, String name)
 {
@@ -321,52 +295,6 @@ int eval_all(const string &dir_name, const string &db_name)
 
 	return 0;
 }
-/*
-
-int show_method(String img_name, 
-	String detector_name, 
-	String descriptor_name)
-{
-
-	Mat I = imread(img_name);
-
-	// detect
-	vector<KeyPoint> keypointsI, keypointsJ;
-	detector -> detect(I, keypointsI);
-	detector -> detect(J, keypointsJ);
-
-	// describe
-	Mat descriptorsI, descriptorsJ;
-	descriptor->compute( I, keypointsI, descriptorsI );
-	descriptor->compute( J, keypointsJ, descriptorsJ );
-
-	// match
-	BFMatcher matcher(NORM_HAMMING);// EMD ?
-	vector< DMatch > matches;
-	matcher.match( descriptorsI, descriptorsJ, matches );
-
-	// test
-	vector<KeyPoint> keypointsJ_;
-	alter -> rm(keypointsJ, keypointsJ_);
-
-	//----------------------------
-	// Display Results
-	string win_matches = "Matches",
-	win_keypoints = "Keypoints (red=originals, green=rectified)";
-	// matches
-	namedWindow(win_matches,WINDOW_NORMAL);
-	Mat img_matches, img_keypoints;
-	drawMatches( I, keypointsI, J, keypointsJ, matches, img_matches, Scalar(100,100,100), Scalar(0,0,255) );
-	imshow( win_matches, img_matches );
-	// keypoints
-	namedWindow(win_keypoints,WINDOW_NORMAL);
-	drawKeypoints( I, keypointsI, img_keypoints, Scalar(0,0,255) );
-	drawKeypoints( I, keypointsJ_, img_keypoints, Scalar(0,255,0), DrawMatchesFlags::DRAW_OVER_OUTIMG );
-	imshow(win_keypoints, img_keypoints );
-
-	waitKey(0);
-}*/
-
 
 /** @function readme */
 void readme()
@@ -375,15 +303,3 @@ void readme()
 	std::cout << " where available descriptors/detectors are : AKAZE, BRISK, ORB" << endl;
 	std::cout << " and available alterations are : noise and affine" << endl;
 }
-
-// ./evaluation data/img AKAZE AKAZE noise
-
-/*
-AKAZE AKAZE
-AKAZE ORB
-AKAZE BRISK
-ORB ORB
-ORB BRISK
-BRISK BRISK
-BRISK ORB
-*/
